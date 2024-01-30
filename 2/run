@@ -1,0 +1,3 @@
+#!/bin/bash
+g++ TR2_Teterev_9363.c -o TR2_Teterev_9363
+./TR2_Teterev_9363
