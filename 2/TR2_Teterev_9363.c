@@ -3,12 +3,12 @@
 #include <signal.h>
 #include <time.h>
 
-#define TOP
-#define BOTTOM
-#define THIS_FLOOR
+#define TOP  0
+#define BOTTOM  1
+#define THIS_FLOOR  2
 
-#define UP
-#define DOWN 
+#define UP  48
+#define DOWN  49
 
 int state = THIS_FLOOR;
 
@@ -18,19 +18,34 @@ void move(int newState)
 }
 
 
-void liftControl(int signo, siginfo_t* info, void* nk)
+void liftControl(int signo)
 {
+	std::cout <<signo << std::endl;
 	switch(state){
-		case(THIS_FLOOR):
-			if(signo == UP){
-				
-			}
+		case (THIS_FLOOR):
+			std::cout << THIS_FLOOR<< std::endl;
 			break;
-		case(TOP):
-			
+		case (TOP):
+			std::cout << TOP << std::endl;
 			break;
-		case(BOTTOM):
-			
+		case (BOTTOM):
+			std::cout << BOTTOM << std::endl;
 			break;
 	}
 } 
+
+int main()
+{
+	sigset_t set;
+	sigemptyset(&set);
+	sigaddset(&set, SIGINT);
+	struct sigaction act;
+	act.sa_handler = &liftControl;
+	act.sa_flags = 0;
+	act.sa_mask = set;
+	sigaction(SIGINT, &act, NULL);
+	raise(BOTTOM);
+	return 0;
+}
+
+
