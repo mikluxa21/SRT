@@ -1,0 +1,4 @@
+#!/bin/bash
+g++ TR5_Teterev_9363.c -o TR5_Teterev_9363
+
+./TR5_Teterev_9363
