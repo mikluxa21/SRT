@@ -1,4 +1,6 @@
 #!/bin/bash
-g++ TR3_Teterev_9363_2.c -o TR3_Teterev_9363
+g++ TR3_Teterev_9363.c -o TR3_Teterev_9363
+g++ TR3_Teterev_9363_2.c -o TR3_Teterev_9363_2
 
 ./TR3_Teterev_9363
+./TR3_Teterev_9363_2
